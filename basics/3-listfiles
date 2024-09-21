@@ -1,3 +1,2 @@
 #!/bin/bash
-# A script that lists the current directory contents in long format
 ls -l
