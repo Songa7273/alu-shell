@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Loop through the files in the current directory
+for file in *; do
+    # Check if the file is not a hidden file and contains a dash (-)
+    if [[ "$file" == *-* ]]; then
+        # Display the part of the file name after the first dash
+        echo "${file#*-}"
+    else
+        # Display the full file name if no dash is present
+        echo "$file"
+    fi
+done
+
