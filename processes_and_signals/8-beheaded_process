@@ -1,5 +1,24 @@
 #!/usr/bin/env bash
-# Use pkill to kill the 7-highlander process
-pgrep -a -f 7-highlander
+# This script attempts to kill the 7-highlander process.
 
+# Find the PID of the 7-highlander process
+pid=$(pgrep -f 7-highlander)
+
+# Check if the process was found
+if [[ -n "$pid" ]]; then
+    # Try to terminate the process
+    pkill -f 7-highlander
+    
+    # Wait a moment to allow the process to terminate
+    sleep 1
+
+    # Check if the process is still running
+    if pgrep -f 7-highlander > /dev/null; then
+        echo "Failed to kill the 7-highlander process."
+    else
+        echo "7-highlander process has been successfully killed."
+    fi
+else
+    echo "No 7-highlander process found."
+fi
 
