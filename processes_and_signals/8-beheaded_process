@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Use pkill to kill the 7-highlander process
-pkill -f 7-highlander
+pgrep -a -f 7-highlander
+
 
